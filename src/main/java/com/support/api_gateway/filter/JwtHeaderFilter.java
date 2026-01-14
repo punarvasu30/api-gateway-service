@@ -22,6 +22,8 @@ public class JwtHeaderFilter implements GlobalFilter {
                     String email = jwt.getSubject();
                     String role = jwt.getClaimAsString("role");
 
+                    System.out.println("Gateway extracted JWT → " + email + " | " + role);
+
                     ServerHttpRequest mutatedRequest = exchange.getRequest()
                             .mutate()
                             .header("X-User-Email", email)
